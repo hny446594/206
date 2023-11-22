@@ -165,7 +165,8 @@ def read():
         Meter = request.form['Meter']
         recd = request.form['recd']
         reading = request.form['reading']
-        pay = request.form['pay']    
+        pay = request.form['pay']
+        old = ''    
         sql = "select Reading,recDate from record where Meter_num = '"+ Meter +"' And recdate < '"+recd+"'order by recDate desc limit 1"
         cur.execute(sql)
         d = cur.fetchall()    
@@ -190,8 +191,11 @@ def read():
         if last == recd:
             pass
         else:
-            sql = "Insert into bill values('"+recd+"',' ','"+acc+"','"+pay+"','"+old+"',' ' )"
-            cur.execute(sql)
+            if old == '':
+               pass 
+            else:
+                sql = "Insert into bill values('"+recd+"',' ','"+acc+"','"+pay+"','"+old+"',' ' )"
+                cur.execute(sql)
         return render_template('pass.html',msg="finish insert")
 @app.route('/datebill')
 def datebill():
@@ -518,6 +522,7 @@ def accchange():
             else:
                 sql = 'update Acc_inf set comany ="'+ company + '" where Acc_No ="'+Acc+'"'
                 cur.execute(sql)
+                return render_template("pass.html",msg = 'information changed')
         elif acckey == "address":
             address =request.form['addressname']
             if address == '':
@@ -525,6 +530,7 @@ def accchange():
             else:
                 sql = 'update Acc_inf set Address ="'+ address + '" where Acc_No ="'+Acc+'"'
                 cur.execute(sql)
+                return render_template("pass.html",msg = 'information changed')
         elif acckey == "pwd":
             opd = request.form['opwd']
             npd = request.form['npwd']
