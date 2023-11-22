@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} 
+{% block body %}
+        <section class="showcase">
+        <div class="page">
+            <form action="http://localhost:8000/result2" method="POST">
+                <p>Acc list:</p>
+                    <ul>
+                        {% for row in Acclist %}
+                        <li></a>{{row}}</li>
+                        {% endfor %}
+                    </ul>
+                    <input type="text" name="Acc">
+                    <input type="submit">
+                </div>
+                </section>
+        </section>
+{%endblock%}

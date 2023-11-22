@@ -1,0 +1,115 @@
+{% extends 'layout.html' %} 
+{% block body %}
+    <script src="../static/bootstrap.min.css"></script>
+    <script src="../static/bootstrap.bundle.min.js"></script>
+    <script src="../static/jquery.min.js"></script> 
+    <section class="showcase">
+        <fieldset class="sign">
+            <legend>record</legend>
+            <div class="enterbox">
+            <form action="http://localhost:8000/insert" method="POST">
+                <p>update table:<input type="radio" id="acc_inf" name="keyType" value="acc_inf"><label for="acc_inf">Acc inf</label>
+                    <input type="radio" id="reading" name="keyType" value="reading"><label for="reading">reading</label>
+                    <input type="radio" id="payment" name="keyType" value="payment"><label for="payment">payment</label>
+                </p>
+                <aside id="acclist">
+                    <table border="1">
+                        <tr><th>Acc_No</th><th>company</th><th>address</th></tr>
+                        {% for row in Accinf%}
+                        <tr>
+                            <td>{{row[0]}}</td>
+                            <td>{{row[1]}}</td>
+                            <td>{{row[2]}}</td>
+                        </tr>
+                        {%endfor%}
+                    </table>
+                    <br>Acc_No: <input list="Acc" name="Acc">
+                    <datalist id="Acc">
+                        {% for row in Acclist %}
+                        <option>{{row}}</option>
+                        {%endfor%}
+                    </datalist>
+                    <br><input type="radio" id="company" name="accType" value="company"><label for="company">company</label>
+                    <input type="radio" id="address" name="accType" value="address"><label for="address">address</label>
+                 <input type="text" name="companyName" id="cn">
+                    <input type="text" name="addressname" id="an">
+                </aside>
+            <aside id="recordchange">
+                <table border="1">
+                    <tr><th>Meter_num</th><th>record Date</th><th>Reading</th></tr>
+                    {% for row in readlist%}
+                    <tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                    </tr>
+                    {%endfor%}
+                </table>
+                <br>Meter_num: <input list="Meter" name="Meter">
+                <datalist id="Meter">
+                    {% for row in Meter %}
+                    <option>{{row}}</option>
+                    {%endfor%}
+                </datalist>
+                <br>Date:<input type="text" name="date">
+                <br>Reading:<input type="text" name="reading">
+            </aside>
+            <aside id="Changepayment">
+               Type of fee :<input type="text" name="feetype">
+                Fee:<input type="text" name="free">
+            </aside>
+            <p><input type="submit" value="update" id="sub" disabled ></p>
+        </form>
+    </div>
+        </fieldset>
+    </section>
+    <script>
+        $(document).ready(function(){
+            $('#acclist').hide()
+            $('#recordchange').hide()
+            $('#Changepayment').hide()
+            $('#cn').hide()
+            $('#an').hide()
+                    
+            $('input[name="keyType"]').click(function(){
+            if($('input[name="keyType"]').val() == ''){
+                $("#sub").attr("disabled","disabled");}                    
+            else{
+                $("#sub").removeAttr("disabled")
+                };              
+            })
+            $('input[name="keyType"]').click(function(){
+            if($('input[name="keyType"]:checked').val() =="acc_inf"){
+                $("#acclist").show()
+                $("#recordchange").hide()
+                $('#Changepayment').hide()
+                };
+                
+            if($('input[name="keyType"]:checked').val() =="reading"){
+                $("#acclist").hide()
+                $("#recordchange").show()
+                $('#Changepayment').hide()
+            };
+                
+            if($('input[name="keyType"]:checked').val() =="payment"){
+                $("#acclist").hide()
+                $("#recordchange").hide()
+                $('#Changepayment').show()
+                };
+            });
+
+        $('input[name="accType"]').click(function(){       
+                if($('input[name="accType"]:checked').val() =="address"){
+                    $('#cn').hide()
+                    $('#an').show()
+                    
+                };
+                if($('input[name="accType"]:checked').val() =="company"){
+                    $('#cn').show()
+                    $('#an').hide()
+                    
+                };
+        });
+    });
+    </script>
+{%endblock%}

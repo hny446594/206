@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" >
+    <meta naame="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="../static/jquery.min.js"></script> 
+    <link rel= "stylesheet" href="../static/main.css">
+    <title>search</title>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <img src="../static/image/HK_Electric.png" width="100px" height="50px">
+            <a href="/home"><h1 class="logo">HK Electric</h1></a>
+        </div>
+    </header>
+    <fieldset class="sign">
+    <legend>seaarch</legend>
+    <div class="enterbox">
+    <p>{{msg}}</p>
+    <form action="http://localhost:8000/getdate" method="POST">
+        <p><input type="radio" id="acc_id" name="keyType" value="acc_id"><label for="acc_id">Acc_NO</label>
+            <input type="radio" id="company_name" name="keyType" value="company_name"><label for="company_name">Comany name</label>
+        </p>
+        <p id="Acckey">Account No:<input name="Acc">
+        </p>
+        <p id="namekey">Comany name<input name="name"></p>
+        <p><input type="submit" value="search" id="sub" disabled ></p>
+        
+    </div>
+    </form>
+    </fieldset>
+    <script>
+        $(document).ready(function(){
+            $("#Acckey").hide()
+            $("#namekey").hide()
+            $("#Dkey").hide()
+            $("input").click(function(){
+                if($('input[name="keyType"]').val() == ''){
+                    $("#sub").attr("disabled","disabled");}                    
+                else{
+                    $("#sub").removeAttr("disabled")
+                };               
+            })
+            $('input[name="keyType"]').click(function(){
+                if($('input[name="keyType"]:checked').val() =="acc_id"){
+                    $("#Acckey").show()
+                    $("#namekey").hide()
+                    $("#Dkey").show()
+                };
+                if($('input[name="keyType"]:checked').val() =="company_name"){
+                    $("#Acckey").hide()
+                    $("#namekey").show()
+                    $("#Dkey").show()
+                };
+        })
+        });
+    </script>
+</body>
+</html>

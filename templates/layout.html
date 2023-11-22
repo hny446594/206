@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="cakebooking" content="width=device-width, initial-scale=1.0">
+        <script src="../static/bootstrap.min.css"></script>
+        <script src="../static/bootstrap.bundle.min.js"></script>
+        <script src="../static/jquery.min.js"></script> 
+        <link rel= "stylesheet" href="../static/main.css">
+        <script src = "../static/main_js.js"></script>
+        <link rel= "stylesheet" href="../static/book.css">
+        <title>HK_Electric</title>
+    </head>
+    <body>
+        
+        <header class="header">
+            <div>
+                <img src="../static/image/HK_Electric.png" width="100px" height="50px">
+                <a href="/home"><h1 class="logo">HK Electric</h1></a>
+            </div>
+            <div>
+                <button id="meun" class="meun" value="off"></button><a href="./"><button id="log" class="log"></button></a>
+            </div>
+        </header>
+        <section class="menulist">
+            <ul>
+                <li ><a href="./singin"> new customer</a></li>
+                <li><a href="./search">search</a></li>
+                <li><a href="./record">update record</a></li>
+                <li><a href="./datebill">Search by date</a></li>
+                <li><a href="./update">update information</a></li>
+                <li><a href="./ontime">update ontime</a></li>
+              </ul>
+        </section>
+        {% block body %}{%endblock %}
+        <script>
+            var meunshow = true;
+            $(document).ready(function(){
+                $("#meun").click(function(){
+                    if(meunshow == true){
+                    $('.showcase').animate({left:'250px'});
+                    meunshow = false;}
+                    else{
+                    $('.showcase').animate({left:'0px'});
+                      meunshow = true;
+                }});
+                $("[href]").click(function(){
+                    $('.showcase').animate({left:'0px'});
+                    meunshow = true;
+                });
+            });
+        </script>
+    </html>

@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="../static/invoice.css" rel="stylesheet">
+    <title>Bill</title>
+    <meta name="description" content="Invoice demo sample">
+  </head>
+
+  <body>
+    <section id="billinf">
+      <table>
+        <tr>
+          <td colspan="7"><h1>香港電燈有限公司
+            <br>The Hongkong Electric CO.,Ltd.
+        </h1></td>
+        <td colspan="3" rowspan="2"><img src="../static/image/HK_Electric.png" id="photo"></td>  
+      </tr >
+      <tr><td colspan="6">&nbsp;</td></tr>
+      <tr><td colspan="6" class="address">Comany: {{Comany}}</td><td class="inf" colspan="4" align="center">Account Number 賬戶號碼<br>
+        {{Acc_No}}</td></tr>
+      <tr><td colspan="6" class="address">Address: {{address}}</td><td class="inf" colspan="4" align="center">Date of Bill 賬戶日期<br>
+        {{Bill_date}}</td></tr>
+        <tr>
+          <td class="tableH" align="center" colspan="2" rowspan="2">Meter Number <br>電表號碼</td>
+          <td class="tableH" align="center" colspan="2">Meter Reading<br>電表讀數</td>
+          <td class="tableH" align="center" colspan="2" rowspan="2">consumption 耗電量</td>
+          <td class="tableH" align="center" colspan="2" rowspan="2">{{lastD}}-{{Bill_date}} <br> ({{betw}} Days天)</td>
+          <td class="tableH" align="center" colspan="2" rowspan="2">Amount HK$ <br>金額</td>
+        </tr>
+        <tr><td class="tableH" >Present  今次</td><td class="tableH">Previces 上次</td></tr>
+        {% for row in records %}
+        <tr>
+              <td colspan="2" align="center">{{ row[0] }}</td>
+              <td align="center">{{ row[1] }}</td>
+              <td align="center">{{ row[2] }}</td>
+              <td colspan="2" align="center">{{ row[3] }}</td>
+              <td colspan="2" align="center">{{ row[4] }}</td>
+              <td colspan="2" align="center"  id="Amount" >${{ row[5] }}</td>
+         </tr>
+        {%endfor%}
+        <tr><td colspan="8">&nbsp;</td><td colspan="2" id="Amount" >&nbsp;</td></tr>
+        <tr><td colspan="8">Basiv charge 基本電費</td><td colspan="2" id="Amount" >&nbsp;</td></tr>
+        <tr><td colspan="8">Fuel Clause Adjustment 燃料價格  每度{{Fuel}}分/unit </td><td colspan="2" id="Amount" >&nbsp;</td></tr>
+        {% if surcharge > 0 %} 
+        <tr><td colspan="8">Surcharge 附加費</td><td colspan="2" id="Amount" align="center">${{surcharge}}</td></tr>
+        {% endif %}
+        <tr style="height: 3cm"><td colspan="8">&nbsp;</td><td colspan="2" id="Amount" >&nbsp;</td></tr>
+        <tr><td colspan="2" rowspan="2" align="center" id="No_right" >Due:<br>繳費限期</td><td id="No_left" colspan="2" rowspan="2" align="center" >{{due}}</td><td id="total" colspan="6" align="center">Please pay this amount:${{total}}</td></tr>
+        <tr><td colspan="6" id="surc">5% sucharge will be added to your bill of the following mouth if this bill is not paid on or before the spocified due date.
+        <br>請即依期繳款，逾期需另繳附加費百分之五，此附加費將會包括在下期電費單內。<td></tr>
+        <tr style="height: 2cm"  class="green"><td colspan="10">&nbsp;</td></tr>
+        <tr><td colspan="10" class="cut">A receipt will not be issued for cheque payment by post. Please retain this postion for your trcord.
+        <br>如用郵寄支票付款，本公司將不發回收據。請保留此部份為記帳用。</td></tr>
+        <tr><td colspan="10">PPS Merchant Code:03<br>「繳費靈」商戶編號</td></tr>
+        <tr><td colspan="2" align="center" ><img src="../static/image/code.svg"></td></tr>
+        <tr class="end"><td colspan="3">CHAN TAI MAN CO.,LTD.</td><td colspan="3">&nbsp;</td><td colspan="4">Due  {{due}}<br>繳費限期</td></tr>
+    </table>
+  </section>
+
+  </body>
+</html>

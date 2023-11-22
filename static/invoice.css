@@ -1,0 +1,77 @@
+    body {
+    margin: 0 auto;
+    width: 21cm;
+    display: fixed;
+  }
+  h1 {
+    color: #000;
+    font-family:'Times New Roman';
+    font-size: 20pt;
+    margin: 0;
+  }
+  .address{
+    color: #000;
+    font-family:'Times New Roman';
+    font-size: 15pt;
+    font-style: normal;
+    white-space: pre-line;
+    background-color: aquamarine;
+  }
+  #head2{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 6.3cm;
+  }
+  #photo{
+    width: 200px;
+  }
+  .inf{
+    border :#000;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid black;
+  }
+  #billinf table{
+    width: 90%;
+    padding: 0px;
+    border-spacing:0px;
+  } 
+  .tableH {
+    border: 2px solid black;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  #Amount {
+    border-left: 2px solid black;
+  }
+  #total{
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    font-family:'Times New Roman';
+    font-size: 15pt;
+    font-weight: bold;
+  }
+  #No_right{
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+  #No_left{
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+  #surc{
+    font-size: 8px;
+  }
+  .green{
+    background-color: aquamarine;
+  }
+  .cut{
+    border-bottom: 3px  dashed gray;
+  }
+  .end{
+    font-size: 10px;
+  }

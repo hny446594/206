@@ -1,0 +1,14 @@
+{% extends 'layout.html' %} 
+{% block body %}
+    <fieldset class="sign">
+    <legend>seaarch</legend>
+    <div class="enterbox">
+    <p>{{msg}}</p>
+    <form action="http://localhost:8000/getAcc" method="POST">
+        <p><input type="date" value="2016-01-31" name="date"></p></div>
+        <p><input type="submit" value="search" id="sub"  ></p>
+    </form><br><br><br>
+
+    
+    </fieldset>
+{%endblock%}

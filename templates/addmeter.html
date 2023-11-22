@@ -1,0 +1,30 @@
+{% extends 'layout.html' %} 
+{% block body %}
+    <section class="showcase">
+        <fieldset class="sign">
+            <legend>record</legend>
+            <div class="enterbox">
+            <form action="http://localhost:8000/meter" method="POST">
+                <p>Acc No:<input list="Acc" name="Acc">
+                <datalist id="Acc">
+                    {% for row in Acclist %}
+                    <option>{{row}}</option>
+                    {%endfor%}
+                </datalist>
+                </p>
+                <p>Meter Number:<input type="text" name="meter"></p>
+                <p><input type="submit" value="update" id="sub" disabled ></p>
+            </div>
+            </form>
+            </fieldset>
+    </section>
+    <script>
+         $("input").keydown(function(){
+     if($('input[name="Acc"]').val() == ''){
+         $("#sub").attr("disabled","disabled");}   
+     else{
+         $("#sub").removeAttr("disabled")
+     };               
+ });
+    </script>
+{%endblock%}

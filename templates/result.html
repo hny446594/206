@@ -1,0 +1,16 @@
+{% extends 'layout.html' %} 
+{% block body %}
+        <section class="showcase">
+        <div class="page">
+            <form action="http://localhost:8000/result" method="POST">
+            Bill Date list:
+            <ul>
+                {% for row in datelist %}
+                <li></a>{{row[0]}}</li>
+                {% endfor %}
+            </ul>
+            <input type="text" name="date">
+            <input type="submit">
+        </div>
+        </section>
+    {%endblock%}

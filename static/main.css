@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+html
+{
+  background-color: white;
+}
+header
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 0px 20px ;
+  z-index: 1000;
+  display: inline-flex;
+  background-color: aqua;
+  align-items:center;
+  justify-content: space-between;
+}
+header a {
+  text-decoration: none;
+}
+header div{
+  display: inline-flex;
+}
+.logbox
+{
+  position: fixed;
+  top: 50px;
+  right: 0;
+  margin: auto;
+  align-items: center;
+  z-index: 1000;
+  width: 200px;
+  height: 200px;
+  background-color: darkgrey;
+}
+.close
+{
+  width: 20px;
+  height: 20px;
+  border: 0px;
+}
+.logbox button
+{
+  position: relative;
+  float: right;
+}
+.logo
+{
+  color: #000;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.meun
+{
+  position: relative;
+  width: 60px;
+  height: 50px;
+  background: url(./image/menu.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+  cursor: pointer;
+  border: 0px;
+}
+.log{
+  position: relative;
+  width: 60px;
+  height: 50px;
+  background: url(./image/lock.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+  cursor: pointer;
+  border: 0;
+}
+.showcase
+{
+  position:absolute;
+  right: 0;
+  left: 0;
+  width: 100%;
+  top: 50px;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 10;
+  background-color: #fff;
+}
+.showcase.active
+{
+  left: 250px;
+}
+.showcase h1
+{
+  font-size: 45px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+.showcase p
+{
+  font-size: 24px;
+}
+.showcase div
+{
+ min-height: 100vh;
+ padding: 10px 50px;
+}
+.page1 video
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.1;
+}
+.page1 a
+{
+  text-decoration: underline;
+  color: #111;
+
+}
+.page1 a:hover
+{
+  color: #03a9f4;
+}
+.text
+{
+  position: relative;
+  z-index: 10;
+}
+
+.menulist
+{
+  position: fixed;
+  top: 50px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: fixed ;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.menulist ul
+{
+  position: relative;
+  
+}
+.menulist ul li
+{
+  list-style: none;
+
+}
+.menulist ul li a
+{
+  text-decoration: none;
+  font-size: 24px;
+  color: #111;
+  text-align: center;
+  margin: 30px;
+}
+.menulist ul li a:hover
+{
+  color: #03a9f4; 
+}
+@media (max-width: 991px)
+{
+  .showcase,
+  .showcase header
+  {
+    padding: 40px;
+  }
+  .text h1
+  {
+    font-size: 3em;
+  }
+  .text h3 
+  {
+    font-size: 2em;
+  }
+}
+.productchoice
+{
+  display: inline;
+}
+.product
+{
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  cursor: pointer;
+  border: 0px;
+}
+.diy
+{
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  cursor: pointer;
+  border: 0px;
+}
+.productchoice button{
+  width: 40%;
+  height: auto;
+  display: inline;
+}
+.sign{
+  position: relative;
+  text-align: center;
+  background-color: antiquewhite;
+  font-size: 20px;
+  top: 50px;
+}
+.insert{
+  position: absolute;
+  text-align: center;
+  background-color: antiquewhite;
+  font-size: 20px;
+  height: 400px;
+}
+.enterbox{
+  text-align: left;
+  margin: auto;
+  width: 600px;
+}
+.weluser{
+  font-size: 500px;
+  position: relative;
+  z-index: 10;
+}
+.welchoice button{
+  width: 47%;
+  height: 50%;
+  display: inline;
+}

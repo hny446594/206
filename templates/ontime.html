@@ -1,0 +1,20 @@
+{% extends 'layout.html' %} 
+{% block body %}
+    <fieldset class="sign">
+    <legend>seaarch</legend>
+    <div class="enterbox">
+    <p>{{msg}}</p>
+    <form action="http://localhost:8000/on" method="POST">
+        Acc_No: <input list="Acc" name="Acc">
+        <datalist id="Acc">
+            {% for row in onlist %}
+            <option>{{row}}</option>
+            {%endfor%}
+        </datalist>
+        <br>Ontime:<input type="radio" id="yes" name="ont" value="yes"><label for="yes">Yes</label>
+        <input type="radio" id="No" name="ont" value="No"><label for="No">No</label>
+        <br>Due Date:<input type="text" name="date">
+        <p><input type="submit" value="update" id="sub"  ></p>
+    </form>
+    </fieldset>
+{%endblock%}

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %} 
+{% block body %}
+<section class="showcase">
+    <fieldset class="insert">
+        <legend>New Acc</legend>
+        <div class="enterbox">
+        <form action="http://localhost:8000/newAcc" method="POST">
+            <p>Company name:<input type="text" name="name"></p>
+            <p>address:<input type="text" name="address"></p>
+            <p>Meter : <input type="text" name="meter"></p>
+            <p><input type="submit" value="update" id="sub" ></p>
+        </div>
+        </form>
+        </fieldset>
+</section>
+<script>
+    $("input").keydown(function(){
+    if($('input[name="name"]').val() == ''|$('input[name="address"]').val() == ''|$('input[name="meter"]').val() == ''){
+        $("#sub").attr("disabled","disabled");}       
+    else{
+        $("#sub").removeAttr("disabled")
+    };
+    });
+</script>
+{%endblock%}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" >
+    <meta naame="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="../static/jquery.min.js"></script> 
+    <link rel= "stylesheet" href="../static/main.css">
+    <title>Registration Page</title>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <img src="../static/image/HK_Electric.png" width="100px" height="50px">
+            <a href="/"><h1 class="logo">HK Electric</h1></a>
+        </div>
+    </header>
+    <fieldset class="sign">
+    <h1>Registration</h1>
+    <form method="POST" action="/register">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

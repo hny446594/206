@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" >
+    <meta naame="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="../static/jquery.min.js"></script> 
+    <link rel= "stylesheet" href="../static/main.css">
+    <title>record</title>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <img src="../static/image/HK_Electric.png" width="100px" height="50px">
+            <a href="/home"><h1 class="logo">HK Electric</h1></a>
+        </div>
+    </header>
+    <fieldset class="sign">
+    <legend>record</legend>
+    <div class="enterbox">
+    <form action="http://localhost:8000/reading" method="POST">
+        <p>Meter No:<input list="Meter" name="Meter">
+        <datalist id="Meter">
+            {% for row in Mlist %}
+            <option>{{row}}</option>
+            {%endfor%}
+        </datalist>
+        </p>
+        <p>Record date : <input type='date' value="2016-01-31" id="recd" name="recd"></p>
+        <p>Reading:<input type="text" id="reading" name="reading"></p>
+        <p>next deadline of bill:<input type="date" id="pay" name="pay" value="2016-01-20" ></p>
+        <p><input type="submit" value="update" id="sub" disabled ></p>
+    </div>
+    </form>
+    </fieldset>
+    <script>
+        $(document).ready(function(){
+            $("input").keydown(function(){
+                if($('input[name="Meter"]').val() == ''){
+                    $("#sub").attr("disabled","disabled");}                    
+                else{
+                    $("#sub").removeAttr("disabled")
+                };               
+            })
+        });
+    </script>
+</body>
+</html>
